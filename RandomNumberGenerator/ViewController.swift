@@ -10,16 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var maxValue: UITextField!
+    @IBOutlet weak var resultLabel: UILabel!
+    @IBAction func generateTapped(_ sender: UIBarButtonItem) {
+        let max = Int(maxValue.text!)!
+        generate(max: max)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func generate(max: Int) {
+        resultLabel.text = "\(arc4random_uniform(UInt32(max)) + 1)"
     }
-
-
+    
 }
 
